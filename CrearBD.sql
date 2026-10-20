@@ -33,3 +33,11 @@ VALUES (
     'pepe',
     '123456'
 );
+
+INSERT INTO usuario (nombre, usuario, clave)
+VALUES (
+    'Martha',
+    'martha',
+    '123'
+);
+
