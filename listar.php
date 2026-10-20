@@ -1,18 +1,28 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['nombre']) && !isset($_SESSION['ID'])) {
+    header("Location: index.php");
+    exit();
+}
+
 include("conexion.php");
 $idUsuario = $_SESSION['ID'];
 $sqlI= "select * from incidencia WHERE usuario_id = $idUsuario";
 $resultadoI= mysqli_query($conexion,$sqlI);
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <title>Listar Incidencias</title>
 </head>
 <body>
     <h1>Lista de incidentes</h1>
-    <br>
-    <br>
+    <h3> Usuario logeado: <?php echo $_SESSION['nombre']; ?></h3>
+    
+    <p><a href="cerrarsesion.php">Cerrar sesión</a></p>
     <a href="registrar.php">Registrar una nueva incidencia</a>
     <br>
     <br>
